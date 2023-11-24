@@ -12,6 +12,8 @@ int TIME;
 int TRANSIENT;
 int SEED;
 
+double prestige_ratio;
+
 
 
 /* Statistical values */
@@ -136,7 +138,6 @@ void DecisionMaking(Individual *indiv, int t){
 /* File open */
 void FileOpen(){
 
-  //char str[256];
 
   if((Frequency = fopen("./Frequency.dat","w")) == NULL){
     printf("error Frequency\n");

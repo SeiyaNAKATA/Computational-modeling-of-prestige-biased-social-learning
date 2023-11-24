@@ -27,27 +27,28 @@ int main(int argc, char *argv[]){
 
 
   /* parameters */
-  /* Homogeneous condition*/
+  /* Homogeneous condition */
   for(i = 0; i < INDIVIDUALS; i++){
     indiv[i].p_bias = atof(argv[1]);
   }
 
 
-
-  /* parameters **/
+  /* parameters */
   mutation_prob = atof(argv[2]);
   mutation_interval = atoi(argv[3]);
   TIME = atoi(argv[4]);
   TRANSIENT = atoi(argv[5]);
   SEED = atoi(argv[6]);  
 
+  prestige_ratio = 10.0;
+
 
   /* Static prestige */
   for(i = 0; i < INDIVIDUALS; i++){
     if(i <= 9){
-      indiv[i].s_prestige = genrand_real3()*1.0;
+      indiv[i].s_prestige = prestige_ratio;
     }else if(i > 9){
-      indiv[i].s_prestige = 0.01;
+      indiv[i].s_prestige = 1.0;
     }
   }
  
@@ -75,15 +76,9 @@ int main(int argc, char *argv[]){
     if(t == 0){
       for(i = 0; i < INDIVIDUALS; i++){
         /* Initial choice of cultural trait */
-        if(i <= 19){
-          init_choice_double = genrand_real3() * NUMOFTRAIT;
-          init_choice = (int)init_choice_double;
-          indiv[i].choice = init_choice;
-        }else if(i > 19){
-          init_choice_double = genrand_real3() * NUMOFTRAIT;
-          init_choice = (int)init_choice_double;
-          indiv[i].choice = init_choice;
-        }
+        init_choice_double = genrand_real3() * NUMOFTRAIT;
+        init_choice = (int)init_choice_double;
+        indiv[i].choice = init_choice;
       }
 
     }else if(t >= 1){

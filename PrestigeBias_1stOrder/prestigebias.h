@@ -25,8 +25,10 @@ extern int TIME;
 extern int TRANSIENT;
 extern int SEED;
 
+extern double prestige_ratio;
 
-/* Statistical values */
+
+/* Dynamics */
 extern int NumberOfTrait[NUMOFTRAIT];
 extern double FreqOfTrait[NUMOFTRAIT];
 extern double Biased_Prestige[INDIVIDUALS];
